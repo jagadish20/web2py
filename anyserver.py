@@ -135,7 +135,7 @@ class Servers:
     def gunicorn(app, address, **options):
         options = {}
         from gunicorn.app.base import Application
-        config = {'bind': "%s:%d" % address}
+        config = {'bind': "%s:%d" % address,  'workers':3, 'timeout':300}
         config.update(options)
         sys.argv = ['anyserver.py']
 
